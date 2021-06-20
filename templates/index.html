@@ -1,0 +1,31 @@
+<!doctype html>
+<title>Upload an Excel file</title>
+<h1>Upload an Excel file</h1>
+
+<p>Instructions:</p>
+<ol>
+	<li>Create an Excel file with 2 columns named a and b</li>
+	<li>Input the corresponding numerical value (integer or real) of a and b in the second row</li>
+	<li>Save the Excel file in xlsx format with "ab" as its filename and upload the file below</li>
+</ol>
+
+<p>Here is an example of the Excel file and its filename:</p>
+<img src="{{url_for('static', filename='ab_example.jpg')}}" style="width:100px;height:40px;">
+<img src="{{url_for('static', filename='ab_file_example.jpg')}}" style="width:356px;height:40px;">
+</br>
+</br>
+
+<form method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+</form>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
